@@ -15,7 +15,7 @@ void setup() {
   size(400, 800);
   frameRate(60);
   background(0);
-  
+
   nPics = 6;
   img = new PImage[nPics];
   img[0] = loadImage("bella1.jpg");
@@ -24,7 +24,6 @@ void setup() {
   img[3] = loadImage("bella4.jpg");
   img[4] = loadImage("bella5.jpg");
   img[5] = loadImage("bella6.jpg");
-  
 }
 
 void draw() {
@@ -52,18 +51,15 @@ void draw() {
   fill(255, 255, 255, opacity);
 
   line(0, 400, 400, 400);
-  
+
   image(img[randImage], randX, randY);
   img[randImage].resize(150, 0);
   tint(255, opacity);
 
   //rect(randX, randY, 100, 100);
 
-  if (millis() >= opacityTime) {
+  if ((millis() > opacityTime) && ( millis() < randBeginTime)) {
     opacity = opacity + 1;
-    if (opacity >= 255) {
-      opacity = 255;
-    }
   }
 
   if (millis() > randBeginTime) {
@@ -74,6 +70,6 @@ void draw() {
   }
 
   if (millis() > randEndTime) {
-    opacity = opacity - 0.5;
+    opacity = opacity - 1;
   }
 }
