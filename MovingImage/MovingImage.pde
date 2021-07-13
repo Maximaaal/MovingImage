@@ -1,3 +1,6 @@
+import processing.sound.*;
+SoundFile file;
+
 PFont mono;
 PImage img[];
 int nPics;
@@ -24,6 +27,9 @@ void setup() {
   img[3] = loadImage("bella4.jpg");
   img[4] = loadImage("bella5.jpg");
   img[5] = loadImage("bella6.jpg");
+  
+  file = new SoundFile(this, "sample.wav");
+  file.play();
 }
 
 void draw() {
@@ -58,7 +64,7 @@ void draw() {
 
   //rect(randX, randY, 100, 100);
 
-  if ((millis() > opacityTime) && ( millis() < randBeginTime)) {
+  if ((millis() > opacityTime) && (millis() < randBeginTime)) {
     opacity = opacity + 1;
   }
 
