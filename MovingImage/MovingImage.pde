@@ -1,4 +1,7 @@
 PFont mono;
+PImage img[];
+int nPics;
+int randImage = int(random(0, 6));
 
 float randX = random(0, 350);
 float randY = random(0, 350);
@@ -8,12 +11,20 @@ float randBeginTime = opacityTime + random(2000, 8000);
 float randEndTime =  randBeginTime + 10000 + random(0, 6000);
 float opacity = 0;
 
-
-
 void setup() {
   size(400, 800);
   frameRate(60);
   background(0);
+  
+  nPics = 6;
+  img = new PImage[nPics];
+  img[0] = loadImage("bella1.jpg");
+  img[1] = loadImage("bella2.jpg");
+  img[2] = loadImage("bella3.jpg");
+  img[3] = loadImage("bella4.jpg");
+  img[4] = loadImage("bella5.jpg");
+  img[5] = loadImage("bella6.jpg");
+  
 }
 
 void draw() {
@@ -33,14 +44,20 @@ void draw() {
   text(" " + millis(), 60, 120);
   text("fRate = ", 10, 140);
   text(frameRate, 60, 140);
+  text("image = ", 10, 160);
+  text(randImage, 60, 160);
   mono = createFont("andale.ttf", 12);
   textFont(mono);
   stroke(255);
   fill(255, 255, 255, opacity);
 
   line(0, 400, 400, 400);
+  
+  image(img[randImage], randX, randY);
+  img[randImage].resize(150, 0);
+  tint(255, opacity);
 
-  rect(randX, randY, 100, 100);
+  //rect(randX, randY, 100, 100);
 
   if (millis() >= opacityTime) {
     opacity = opacity + 1;
