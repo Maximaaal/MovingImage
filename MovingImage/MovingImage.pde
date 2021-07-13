@@ -31,6 +31,8 @@ void draw() {
   text(randEndTime, 60, 100);
   text("cTime = ", 10, 120);
   text(" " + millis(), 60, 120);
+  text("fRate = ", 10, 140);
+  text(frameRate, 60, 140);
   mono = createFont("andale.ttf", 12);
   textFont(mono);
   stroke(255);
