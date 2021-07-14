@@ -4,7 +4,7 @@ SoundFile file;
 PFont mono;
 PImage img[];
 int nPics;
-int randImage = int(random(0, 6));
+int randImage = int(random(0, 1));
 
 float randX = random(0, 1280);
 float randY = random(0, 1024);
@@ -16,7 +16,7 @@ float opacity = 255;
 
 void setup() {
   //size(400, 800);
-  fullScreen(P3D, SPAN);
+  fullScreen(P3D);
   frameRate(60);
   background(0);
 
@@ -24,10 +24,6 @@ void setup() {
   img = new PImage[nPics];
   img[0] = loadImage("bella1.jpg");
   img[1] = loadImage("bella2.jpg");
-  img[2] = loadImage("bella3.jpg");
-  img[3] = loadImage("bella4.jpg");
-  img[4] = loadImage("bella5.jpg");
-  img[5] = loadImage("bella6.jpg");
   
   file = new SoundFile(this, "sample.wav");
   file.play();
